@@ -41,7 +41,7 @@ checkFile "上交所行情文件" $f_path'mktdt00.txt'
 s_ezsr=$r
 checkFile "上交所地面行情资讯文件" $f_path'fjy'$d'.txt'
 s_bt=$r
-checkFile "上交所过户文件" $f_path'gh36573.dbf'
+checkFile "上交所过户文件" $f_path'ghxxxxx.dbf'
 s_eztrans=$r
 checkFile "深交所盘终行情文件" $f_path'securities_'$d'.xml'
 s_szfx=$r
