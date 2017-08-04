@@ -55,4 +55,4 @@ str="※※※※※※※※※※※※交易所清算文件检查※※※※
 
 echo -e $str
 
-python /root/clearDataCheck/sendWeixin.py Qing.Yu bb $str
+python /root/clearDataCheck/sendWeixin.py Qing.Yu xx $str
