@@ -3,6 +3,7 @@
 #Mail:1753330141@qq.com
 # Ver:V1.1
 #Date:2017-08-01
+
 #定义实例名称，挂载路径，数据库程序安装路径，数据库路径
 #缺省用户名oracle，组dba
 ora_sid='ASTORADB23'
