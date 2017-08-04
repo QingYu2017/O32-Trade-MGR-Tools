@@ -20,48 +20,48 @@ if not fso.FolderExists("D:\Trade\" & dateStr) then
 	set desFolder=fso.GetFolder("D:\Trade\" & dateStr)
 end if 
 
-'Ó³ÉäEzSRÈ¡ÉÏ½»ËùĞĞÇé
+'æ˜ å°„EzSRå–ä¸Šäº¤æ‰€è¡Œæƒ…
 mapFolder "G:","\\xxx.xx.xx.33\c$\EzSR_DATA","administrator","xxxxxxxxx"
-'¸´ÖÆÉÏ½»ËùĞĞÇéÎÄ¼ş
+'å¤åˆ¶ä¸Šäº¤æ‰€è¡Œæƒ…æ–‡ä»¶
 fso.CopyFile "G:\mktdt00.txt", desFolder.path & "\mktdt00.txt"
 fso.CopyFile "G:\mktdt03.txt", desFolder.path & "\mktdt03.txt"
-'Ó³ÉäbiTransClientV3È¡fjy
+'æ˜ å°„biTransClientV3å–fjy
 mapFolder "G:","\\xxx.xx.xx.33\c$\biTransClientV3\Data\shfile","administrator","xxxxxxxxx"
-'¸´ÖÆ·Ç½»Ò××ÊÑ¶
+'å¤åˆ¶éäº¤æ˜“èµ„è®¯
 fso.CopyFile "G:\fjy" & dateStr &".txt", desFolder.path & "\fjy" & dateStr &".txt"
-'Ó³ÉäFxClientÈ¡Éî½»ËùĞĞÇé
+'æ˜ å°„FxClientå–æ·±äº¤æ‰€è¡Œæƒ…
 mapFolder "G:","\\xxx.xx.xx.51\c$\Users\Administrator\Desktop\FxClient\temp\F000000X0001","administrator","xxxxxxxxx"
-'¸´ÖÆÉî½»ËùĞĞÇéÎÄ¼ş
+'å¤åˆ¶æ·±äº¤æ‰€è¡Œæƒ…æ–‡ä»¶
 fso.CopyFile "G:\cashsecurityclosemd_" & dateStr & ".xml", desFolder.path & "\cashsecurityclosemd_" & dateStr & ".xml"
 fso.CopyFile "G:\securities_" & dateStr & ".xml", desFolder.path & "\securities_" & dateStr & ".xml"
 fso.CopyFile "G:\issueparams_" & dateStr & ".xml", desFolder.path & "\issueparams_" & dateStr & ".xml"
-'Ó³ÉäEzTransÈ¡ÉÏ½»Ëù¹ı»§
+'æ˜ å°„EzTranså–ä¸Šäº¤æ‰€è¿‡æˆ·
 mapFolder "G:","\\xxx.xx.xx.34\c$\EzTrans_Data","administrator","xxxxxxxxx"
-'µÈ´ıÎÄ¼ş¿½±´½áÊø
+'ç­‰å¾…æ–‡ä»¶æ‹·è´ç»“æŸ
 sleep(3000)
-'½âÑ¹ËõGHÎÄ¼ş
+'è§£å‹ç¼©GHæ–‡ä»¶
 wshshell.exec "c:\Program Files\WinRAR\WinRAR.exe x " & desFolder.path & "\*.zip " & desFolder.path & " -o+"
-'¸´ÖÆÉÏ½»Ëù¹ı»§ÎÄ¼ş¼Ğ
+'å¤åˆ¶ä¸Šäº¤æ‰€è¿‡æˆ·æ–‡ä»¶å¤¹
 fso.CopyFolder "G:\" & dateStr, desFolder.path
 'wshshell.exec "c:\Program Files\WinRAR\WinRAR.exe x " & "G:\" & dateStr & "\*.zip " & desFolder.path & " -o+"
-'Ó³ÉäPROP»¦ÖĞµÇÇåËãÎÄ¼ş
+'æ˜ å°„PROPæ²ªä¸­ç™»æ¸…ç®—æ–‡ä»¶
 mapFolder "G:","\\xxx.xx.xx.41\c$\prop2000\mailbox","administrator","xxxxxxxxx"
-'¸´ÖÆPROP»¦ÖĞµÇÇåËãÎÄ¼ş
+'å¤åˆ¶PROPæ²ªä¸­ç™»æ¸…ç®—æ–‡ä»¶
 fso.CopyFolder "G:\" & dateStr, desFolder.path
-'Ó³ÉäD-COMÈ¡ÉîÖĞµÇÇåËã
+'æ˜ å°„D-COMå–æ·±ä¸­ç™»æ¸…ç®—
 mapFolder "G:","\\xxx.xx.xx.57\c$\DownloadFiles","administrator","xxxxxxxxx"
-'¸´ÖÆD-COMÊı¾İ
+'å¤åˆ¶D-COMæ•°æ®
 fso.CopyFolder "G:\" & dateStr, desFolder.path
-'¸´ÖÆÇåËãÊı¾İµ½¹ÀÖµ
-fso.CopyFolder "D:\Trade\" & dateStr, "D:\Hundsun\ÕĞÉÌ\" & dateStr
+'å¤åˆ¶æ¸…ç®—æ•°æ®åˆ°ä¼°å€¼
+fso.CopyFolder "D:\Trade\" & dateStr, "D:\Hundsun\æ‹›å•†\" & dateStr
 
 sub mapFolder(drv,pathStr,usr,usrpwd)'"Y:","\\xxx.xx.xx.33\EzSR_DATA"
 	'on error resume next
 	Set WshNetwork = WScript.CreateObject("WScript.Network")
-	'É¾³ıÒÑÓĞÓ³Éä
+	'åˆ é™¤å·²æœ‰æ˜ å°„
 	if fso.DriveExists(drv) then
 		WshNetwork.RemoveNetworkDrive drv
 	end if
-	'Ìí¼ÓÓ³Éä
+	'æ·»åŠ æ˜ å°„
 	WshNetwork.MapNetworkDrive drv, pathStr,false,usr,usrpwd
 end sub
