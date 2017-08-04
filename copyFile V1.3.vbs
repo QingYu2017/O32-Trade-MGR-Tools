@@ -12,7 +12,7 @@ set wshshell = createobject("wscript.shell")
 dateStr=year(now) & right("0" & month(now),2) & right("0" & day(now),2)
 Set fso = CreateObject("Scripting.FileSystemObject")
 if not fso.DriveExists("D:") then
-	mapFolder "D:","\\xx.xxx.xx.154\d$","administrator","1qaz@WSX"
+	mapFolder "D:","\\xx.xxx.xx.154\d$","administrator","xxxxxxxx"
 end if
 if not fso.FolderExists("D:\Trade\" & dateStr) then
 	set desFolder=fso.CreateFolder("D:\Trade\" & dateStr)
