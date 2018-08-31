@@ -17,3 +17,17 @@
   - 考察周期内收息累加；
 
 - oracle环境配置；
+
+
+- 服务启停
+```shell
+#快速关闭服务
+su - mc -c 'cd workspace && ./stopmc'
+su - o4bar -c 'cd workspace && ./stopbar'
+su - trade -c 'cd workspace && ./stopas'
+
+#快速启动服务
+su - o4bar -c 'cd workspace && ./runbar'
+su - trade -c 'cd workspace && ./runas'
+su - mc -c 'cd workspace && ./runmc'
+```
