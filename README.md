@@ -16,12 +16,17 @@
   - 判断付息日与当前日期（考察日期）先后；
   - 考察周期内收息累加；
 
+- O32日志文件的备份导出![代码示例](https://github.com/QingYu2017/O32-Trade-MGR-Tools/blob/O32%E8%BF%90%E7%BB%B4%E7%AE%A1%E7%90%86%E9%85%8D%E5%A5%97%E5%B7%A5%E5%85%B7/bakProc%20V1.0.sh)
+  - trade日志文件压缩
+  - 日志文件归集
+  - 已存档文件的删除
+
 - oracle环境配置![代码示例](https://github.com/QingYu2017/O32-Trade-MGR-Tools/blob/O32%E8%BF%90%E7%BB%B4%E7%AE%A1%E7%90%86%E9%85%8D%E5%A5%97%E5%B7%A5%E5%85%B7/installORA%20V1.0.sh)
   - 创建oracle用户账号
   - 修改环境变量和核心参数
-  - 解决服务启动
+  - 配置Oracle服务随系统启动
 
-- 服务启停
+- O32服务的启停批处理
 ```shell
 #快速关闭服务
 su - mc -c 'cd workspace && ./stopmc'
