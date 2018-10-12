@@ -1,4 +1,3 @@
-```sql
 declare @par_date as nvarchar(20),@sql_str as nvarchar(max)
 --set @par_date=@q_year+'-'+@q_month+'-'+@q_date
 set @par_date='2017-2-9'
@@ -73,4 +72,3 @@ and ti.C_INVEST_TYPE=fi.invest_code
 and ti.l_zqlb=fi.l_zqlb
 order by check_flag,ti.vc_fund_code'
 exec (@sql_str)
-```
