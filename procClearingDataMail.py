@@ -70,7 +70,7 @@ server.pass_(password)
 resp, mails, octets = server.list()
 
 # ---------------------------------------------------------------------------
-# Traverse the email extract and get the specified email attachment
+# Traverse the emails, get and extractthe specified email attachment
 # ---------------------------------------------------------------------------
 index = len(mails)
 for i in range(index, index- 30, -1):
