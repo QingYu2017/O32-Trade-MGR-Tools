@@ -1,3 +1,8 @@
+#Auth: Qing.Yu
+#Mail: 1753330141@qq.com
+# Ver: V1.0
+#Date: 2022-05-20
+
 import re,quopri,poplib
 import datetime
 from cls_mail import fun_save_file
