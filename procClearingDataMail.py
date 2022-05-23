@@ -63,7 +63,7 @@ host,username,password=(fun_get_value('mail_server'),fun_get_value('mail_usernam
 server = poplib.POP3(host)  
 
 # ---------------------------------------------------------------------------
-# Logon to pop server
+# Login pop server
 # ---------------------------------------------------------------------------
 server.user(username)
 server.pass_(password)
