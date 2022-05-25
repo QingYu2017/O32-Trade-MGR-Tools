@@ -15,7 +15,7 @@ from email.parser import Parser
 # ---------------------------------------------------------------------------
 # Define the business date, defaults to the current date
 # ---------------------------------------------------------------------------
-proc_date = '20220520'
+proc_date = ''
 if len(proc_date) == 0:
     proc_date = datetime.datetime.now().strftime('%Y%m%d')
 
@@ -23,6 +23,7 @@ if len(proc_date) == 0:
 # Define search variables with regular expressions
 # ---------------------------------------------------------------------------
 str_search = '水泊梁山基金管理有限公司.*{}|{}.*[account1|account2|account3]|[account1|account2|account3]-{}'.format(proc_date,proc_date,proc_date)
+
 
 # ---------------------------------------------------------------------------
 # Fetch mail data, only fetch head information if with head_only 
@@ -78,13 +79,21 @@ resp, mails, octets = server.list()
 # Traverse the emails, get and extractthe specified email attachment
 # ---------------------------------------------------------------------------
 index = len(mails)
-for i in range(index, index- 30, -1):
+for i in range(index, index- 100, -1):
+    print('#'*20)
     m = f_fetch_mail(server,i)[1]
-    m_title = fun_fetch_mail_subject(m)
-    #print(m_title)
-    print('Fetching mail：{}'.format(m_title['Subject_decode']))
-    if len(re.findall(str_search, m_title['Subject_decode']))>0:
-        print('{} Parsing mail：{}'.format('>'*10,m_title['Subject_decode']))
+    try:
+        if m.get_charsets()[0] == 'us-ascii':
+            mail_subject = m['Subject']
+        else:
+            m_subject = decode_header(m['Subject'])
+            mail_subject = m_subject[0][0].decode(m_subject[0][1])
+    except:
+        mail_subject = re.sub('\r|\n| ','',fun_decode_base64(m['Subject']))
+    #m_title = fun_fetch_mail_subject(m)
+    print('Fetching mail：{}'.format(mail_subject))
+    if len(re.findall(str_search, mail_subject))>0:
+        print('{} Parsing mail：{}'.format('>'*10,mail_subject))
         m_full = f_fetch_mail(server,i,'full')
         for part in m_full[1].walk():
             if part.get_filename():
@@ -95,3 +104,5 @@ for i in range(index, index- 30, -1):
                     filename = f[0][0]
                 filedata = part.get_payload(decode=True)
                 fun_save_file(filedata, filename, '{}_clearingdata'.format(proc_date))
+
+                
