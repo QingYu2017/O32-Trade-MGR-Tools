@@ -53,14 +53,6 @@ sub stopProc()
 			objProcess.terminate
 		end if
 	next
-	Set colProcessList = objWMIService.ExecQuery("SELECT * FROM Win32_Process")
-	'遍历当前进程，如读取到转换机任务/子任务，终止进程
-	For Each objProcess in colProcessList
-		'考虑改为用ExecuteablePath进行控制
-		if left(objProcess.name,11)="subProcTran" or objProcess.name="procmaintran.exe" or objProcess.name="maintran.exe" then
-			objProcess.terminate
-		end if
-	next
 end sub
 
 sub mapEzSRData()
